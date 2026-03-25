@@ -1248,3 +1248,37 @@
       <a href="tel:+2348138842681">+234 813 884 2681</a>
       <a href="https://www.linkedin.com/in/rotimi-amusa-5852a214b" target="_blank">LinkedIn</a>
     </div>
+  </div>
+</footer>
+
+<script>
+  // Lightbox functionality
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.gallery-img-wrap img').forEach(img => {
+    img.addEventListener('click', function() {
+      lightboxImg.src = this.src;
+      lightboxImg.alt = this.alt;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  document.querySelector('.gallery-zoom') && 
+  document.querySelectorAll('.gallery-zoom').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const img = this.closest('.gallery-img-wrap').querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  lightbox.addEventListener('click', function() {
+    this.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
